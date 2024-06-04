@@ -1,0 +1,7 @@
+cols_to_check
+
+These are the columns that remained after I dropped all the scale items and non-imputed scale features.  What I'm working on now is going through them to try and reduce dimensionality.
+
+THIS IS A CONTINUATION OF THE PREVIOUS DOC BY THE SAME NAME
+
+['gp1',  'w1q142a', 'w1q142b', 'w1q142c', 'w1q142d', 'w1q142e', 'w1q142f', 'w1q142g', 'w1q142h', 'w1q142i', 'w1q142j', 'w1q142k', 'w1q143_1', 'w1q143_2', 'w1q143_3', 'w1q143_4', 'w1q143_5', 'w1q143_6', 'w1q143_7', 'w1q143_8', 'w1q143_9', 'w1q143_10', 'w1q145_1', 'w1q145_2', 'w1q145_3', 'w1q145_4', 'w1q145_5', 'w1q145_6', 'w1q145_7', 'w1q145_8', 'w1q145_9', 'w1q145_10', 'w1q146a', 'w1q146b', 'w1q146c', 'w1q146d', 'w1q146e', 'w1q146f', 'w1q146g', 'w1q146h', 'w1q146i', 'w1q146j', 'w1q146k', 'w1q146l', 'w1q162', 'w1q163_1', 'w1q163_2', 'w1q163_3', 'w1q163_4', 'w1q163_5', 'w1q163_6', 'w1q163_7', 'w1q163_8', 'w1q163_9', 'w1q163_10', 'w1q166', 'w1q167', 'w1q168', 'w1q169', 'w1q170_1', 'w1q170_2', 'w1q170_3', 'w1q170_4', 'w1q171_1', 'w1q171_2', 'w1q171_3', 'w1q171_4', 'w1q171_5', 'w1q171_6', 'w1q171_7', 'w1q171_8', 'w1q171_9', 'w1q172', 'w1q173', 'w1q174', 'w1q175', 'w1q176', 'w1q177_1', 'w1q177_2', 'w1q177_3', 'w1q177_4', 'w1q177_5', 'w1q177_6', 'w1q177_7', 'w1q177_8', 'w1q177_9', 'w1q177_10', 'w1q177_11', 'w1q177_12', 'w1q178', 'w1q179', 'w1q180', 'w1q181', 'w1q182', 'w1q183', 'w1q184', 'w1q185',  'w1sample',  'w1pinc', 'w1pinc_i', 'grespondent_date_w2', 'gsurvey', 'gp2', 'grace', 'grespondent_date_w3', 'wave3', 'nopolicecontact']

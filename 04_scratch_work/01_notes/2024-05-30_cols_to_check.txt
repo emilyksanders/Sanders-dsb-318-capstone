@@ -1,0 +1,7 @@
+cols_to_check
+
+These are the columns that remained after I dropped all the scale items and non-imputed scale features.  What I'm working on now is going through them to try and reduce dimensionality.
+
+THIS IS A CONTINUATION OF THE PREVIOUS DOC BY THE SAME NAME
+
+[]
