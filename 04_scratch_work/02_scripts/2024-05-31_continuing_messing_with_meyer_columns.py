@@ -32,16 +32,3 @@ for i in list(meyer.columns):
   a = list(meyer[i].unique())
   if 0 in a:
     print(i)
-
-
-
-
-
-
-
-
-
-
-
-
-

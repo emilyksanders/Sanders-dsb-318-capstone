@@ -186,6 +186,9 @@ s_mode_new = [''.join([x, '_ei']) for x in s_mode]
 # # No!  No, it is not!!
 # # The stupid 97s, 98s, and 99s are at it again!
 
+
+# Suicide and NSSH Qs
+
 s = '''
 w1q119
 w1q109
@@ -229,7 +232,7 @@ meyer[['w1q32_ei']] = meyer[['w1q32']].fillna(2)
 
 meyer[['w1q32_ei']].value_counts(dropna = False)
 
-meyer.drop(columns = ['w1q32_ei'], inplace = True)
+meyer.drop(columns = ['w1q32'], inplace = True)
 
 meyer.shape
 list(meyer.columns)
