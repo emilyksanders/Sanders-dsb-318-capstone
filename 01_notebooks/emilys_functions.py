@@ -14,7 +14,7 @@ def my_date():
 my_date()
 
 # Define autoplots()
-def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = True):
+def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = True, folder = 'images'):
   '''a function to make a ton of graphs.
   Each plot is based on a subset of d where all variables in the
   plot have no null values.  The size of this subset (n) is 
@@ -36,6 +36,8 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
     line: bool, whether to plot line graphs. Default = False.
     
     verbose: bool, whether to print updates while running. Default = True.
+
+    folder: string, the name of the folder in which to save the plots.  Default = 'images'.
   
   return:
     a ton of plots in a FOLDER
@@ -54,10 +56,10 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
   
   # Make a folder 
   try: 
-    os.mkdir('images')
+    os.mkdir(folder)
   except:
     pass
-  a = f'images/plots_{my_date()}'
+  a = f'{folder}/plots_{my_date()}'
   os.mkdir(a)
   
   # Define these once
@@ -93,10 +95,10 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
     plt.xlabel(f'{t}', size = 20);
     plt.ylabel('Frequency', size = 20);
     plt.xticks(size = 16, rotation = 60);
-    plt.yticks(size = 16)
+    plt.yticks(size = 16);
     # plt.tight_layout()
-    plt.savefig(f'./{a}/{i}_histogram.png')
-    plt.close()
+    plt.savefig(f'./{a}/{i}_histogram.png');
+    plt.close();
     
     # Plot a boxplot of it
     plt.figure(figsize = (16, 9))
@@ -104,25 +106,25 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
     plt.suptitle(f'Distribution of {t}', size = 24)
     plt.title(f'Based on {n} Observations out of {n_grand}', size = 18)
     plt.xlabel(f'{t}', size = 20);
-    plt.xticks(size = 16, rotation = 60)
+    plt.xticks(size = 16, rotation = 60);
     # plt.tight_layout()
-    plt.savefig(f'./{a}/{i}_boxplot.png')
-    plt.close()
+    plt.savefig(f'./{a}/{i}_boxplot.png');
+    plt.close();
     
     # Plot (a) qqplot(s) of it, if indicated
     if qqplots==True:
       
       # Raw data
-      plt.figure(figsize = (9, 9))
+      plt.figure(figsize = (9, 9));
       sm.qqplot(data = df, line='45', markerfacecolor = 'purple', 
-        markeredgecolor = 'purple', alpha = 0.5)
-      plt.suptitle(f'QQ-Plot of {t}', size = 24)
-      plt.title(f'Based on {n} Observations out of {n_grand}', size = 18)
+        markeredgecolor = 'purple', alpha = 0.5);
+      plt.suptitle(f'QQ-Plot of {t}', size = 24);
+      plt.title(f'Based on {n} Observations out of {n_grand}', size = 18);
       plt.xticks(size = 16, rotation = 60);
       plt.yticks(size = 16);
       # plt.tight_layout();
-      plt.savefig(f'./{a}/{i}_qqplot.png')
-      plt.close()
+      plt.savefig(f'./{a}/{i}_qqplot.png');
+      plt.close();
       
       # Plot transformations, if indicated
       if transform == True:
@@ -134,40 +136,40 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
           z=0
         
         # Square root
-        plt.figure(figsize = (9, 9))
+        plt.figure(figsize = (9, 9));
         sm.qqplot(data = ((df+z)**(1/2)), line='45', alpha = 0.5, 
-          markerfacecolor = 'purple', markeredgecolor = 'purple')
-        plt.suptitle(f'QQ-Plot of Square Root of {t}-Plus-{z}', size = 24)
-        plt.title(f'Based on {n} Observations out of {n_grand}', size = 18)
+          markerfacecolor = 'purple', markeredgecolor = 'purple');
+        plt.suptitle(f'QQ-Plot of Square Root of {t}-Plus-{z}', size = 24);
+        plt.title(f'Based on {n} Observations out of {n_grand}', size = 18);
         plt.xticks(size = 16, rotation = 60);
         plt.yticks(size = 16);
         # plt.tight_layout();
-        plt.savefig(f'./{a}/{i}_qqplot_2nd_root.png')
-        plt.close()
+        plt.savefig(f'./{a}/{i}_qqplot_2nd_root.png');
+        plt.close();
         
         # Cube root
-        plt.figure(figsize = (9, 9))
+        plt.figure(figsize = (9, 9));
         sm.qqplot(data = ((df+z)**(1/3)), line='45', alpha = 0.5, 
-          markerfacecolor = 'purple', markeredgecolor = 'purple')
-        plt.suptitle(f'QQ-Plot of Cube Root of {t}-Plus-{z}', size = 24)
-        plt.title(f'Based on {n} Observations out of {n_grand}', size = 18)
+          markerfacecolor = 'purple', markeredgecolor = 'purple');
+        plt.suptitle(f'QQ-Plot of Cube Root of {t}-Plus-{z}', size = 24);
+        plt.title(f'Based on {n} Observations out of {n_grand}', size = 18);
         plt.xticks(size = 16, rotation = 60);
         plt.yticks(size = 16);
         # plt.tight_layout();
-        plt.savefig(f'./{a}/{i}_qqplot_3rd_root.png')
-        plt.close()        
+        plt.savefig(f'./{a}/{i}_qqplot_3rd_root.png');
+        plt.close();
         
         # Log... ish
-        plt.figure(figsize = (9, 9))
+        plt.figure(figsize = (9, 9));
         sm.qqplot(data = np.log(df+z+1), line='45', alpha = 0.5, 
-          markerfacecolor = 'purple', markeredgecolor = 'purple')
-        plt.suptitle(f'QQ-Plot of Log of {t}-Plus-{z+1}', size = 24)
-        plt.title(f'Based on {n} Observations out of {n_grand}', size = 18)
+          markerfacecolor = 'purple', markeredgecolor = 'purple');
+        plt.suptitle(f'QQ-Plot of Log of {t}-Plus-{z+1}', size = 24);
+        plt.title(f'Based on {n} Observations out of {n_grand}', size = 18);
         plt.xticks(size = 16, rotation = 60);
         plt.yticks(size = 16);
         # plt.tight_layout();
-        plt.savefig(f'./{a}/{i}_qqplot_log.png')
-        plt.close()       
+        plt.savefig(f'./{a}/{i}_qqplot_log.png');
+        plt.close();
     
   # Drop y from the list
   X = [col for col in list(d.drop(columns = [y]).columns)]
@@ -191,10 +193,10 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
     plt.xlabel(f'{t}', size = 20);
     plt.ylabel(f'{ty}', size = 20);
     plt.xticks(size = 16, rotation = 60)
-    plt.yticks(size = 16)
+    plt.yticks(size = 16);
     # plt.tight_layout()
-    plt.savefig(f'./{a}/{i}-by-{y}_scatterplot.png')
-    plt.close()
+    plt.savefig(f'./{a}/{i}-by-{y}_scatterplot.png');
+    plt.close();
     
     # Plot a line plot of it against y
     if line==True:
@@ -205,10 +207,10 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
       plt.xlabel(f'{t}', size = 20);
       plt.ylabel(f'{ty}', size = 20);
       plt.xticks(size = 16, rotation = 60)
-      plt.yticks(size = 16)
+      plt.yticks(size = 16);
       # plt.tight_layout()
-      plt.savefig(f'./{a}/{i}-by-{y}_lineplot.png')
-      plt.close()
+      plt.savefig(f'./{a}/{i}-by-{y}_lineplot.png');
+      plt.close();
     
   # All together now
   n = len(d[y])
@@ -224,11 +226,11 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
     plt.xlabel(f'{t}', size = 20);
     plt.ylabel(f'{ty}', size = 20);
     plt.xticks(size = 16, rotation = 60)
-    plt.yticks(size = 16)
+    plt.yticks(size = 16);
     plt.legend();
     # plt.tight_layout()
-    plt.savefig(f'./{a}/all-by-{y}_lineplot.png')
-    plt.close()
+    plt.savefig(f'./{a}/all-by-{y}_lineplot.png');
+    plt.close();
   
   # Get some correlations
   corr = round(d.corr(numeric_only = True), 2)
@@ -241,10 +243,10 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
   sns.heatmap(corr, square = True, 
     annot = True, cmap = 'coolwarm', mask = mask);
   plt.suptitle(f'Relationships Between Variables', size = 24)
-  plt.title(f'Based on {n_grand} Observations out of {n_grand}', size = 18)
+  plt.title(f'Based on {n_grand} Observations out of {n_grand}', size = 18);
   # plt.tight_layout()
-  plt.savefig(f'./{a}/all_heatmap.png')
-  plt.close()
+  plt.savefig(f'./{a}/all_heatmap.png');
+  plt.close();
   
   # Plot a heatmap column on y
   if y in corr:
@@ -253,8 +255,8 @@ def autoplots(d, y, qqplots = True, transform = False, line = False, verbose = T
       vmin = 0, vmax = 1, annot = True, cmap = 'coolwarm')
     plt.suptitle(f'Relationship between Predictors and {ty}', size = 24)
     plt.title(f'Based on {n_grand} Observations out of {n_grand}', size = 18)
-    plt.xlabel(f'{ty}', size = 20)
+    plt.xlabel(f'{ty}', size = 20);
     plt.yticklabels = True
     # plt.tight_layout()
-    plt.savefig(f'./{a}/all-by-{y}_heatmap.png')
-    plt.close()
+    plt.savefig(f'./{a}/all-by-{y}_heatmap.png');
+    plt.close();
