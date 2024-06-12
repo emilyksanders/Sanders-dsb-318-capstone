@@ -1,4 +1,0 @@
-notes about non-scale columns
-
-- for right now I've kept the current well being and the future predicted well being columns, because I think it could be interesting to see if predicting higher or lower than current correlates with anything.  I've also made instructions to combine them (higher is better, regardless fo hether it's current WB or optimism for future WB), which may end up being more parsimonious.
-- I've also kept Q3, which is about happiness, but I suspect it's very corr'd with WB.  check that, and then either combine or drop it.
